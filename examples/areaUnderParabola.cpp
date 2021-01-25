@@ -70,13 +70,13 @@ int main(){
         f[i] = square(a+x[i]*h);    // generate parabola f(x)=x^2 between a and b
     }
 
-    double area=0, area_p=0, time_s=0, time_p=0;
-    computeArea(f, a, b, &area, &time_s);
+    double area=0, area_p=0, time=0, time_p=0;
+    computeArea(f, a, b, &area, &time);
     computeAreaParallel(f, a, b, &area_p, &time_p);
 
     cout<<"Area from computeArea():"<<area<<endl;
     cout<<"Area from computeAreaParallel():"<<area_p<<endl;
-    cout<<"Time taken for serial execution:"<<time_s<<endl;
+    cout<<"Time taken for serial execution:"<<time<<endl;
     cout<<"Time taken for parallel execution:"<<time_p<<endl;
     
     return 0;
