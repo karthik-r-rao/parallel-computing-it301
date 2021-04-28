@@ -35,11 +35,9 @@ void printGraph(vector<vector<tuple<int, int>>>& adj) {
     }
 }
 
-int main()
+int main(int argc, char *argv[])
 {
-    int numVertices;
-    cout << "Enter number of vertices in the graph: ";
-    cin >> numVertices;
+    int numVertices = atoi(argv[1]);
     vector<vector<tuple<int, int>>> adj(numVertices);
     createGraph(adj, numVertices);
     //printGraph(adj);
@@ -61,14 +59,6 @@ int main()
         }
         places.push_back(count);
     }
-/*     for (int i = 0; i < flat.size(); i++) {
-        cout << flat[i] << " ";
-    }
-    cout << "\nAnd count..\n";
-    for (int i = 0; i < places.size(); i++) {
-        cout << places[i] << " ";
-    }
-    cout << "\n"; */
 
     // write flat and places to txt files
     ofstream file1, file2;

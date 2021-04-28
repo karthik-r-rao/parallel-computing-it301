@@ -129,6 +129,7 @@ int main(){
 
 	int vertices = psize - 1;
 	int* state = (int*)malloc(sizeof(int) * vertices);
+	printf("Number of vertices: %d\n", vertices);
 
 	// initialize states randomly
 	for (int i = 0; i < vertices; ++i) {
@@ -158,20 +159,18 @@ int main(){
 
 	printf("Time taken for sequential Ising Annealing: %f seconds\n", time_spent);
 
-	// append time taken to times.txt
-	fptr = fopen("times.txt", "a");
-	if (fptr == NULL)
-	{
-		printf("Error!");
-		return -1;
-	}
-	fprintf(fptr, "%f\n", time_spent);
-	fclose(fptr);
-
 	// free dynamic memory
 	free(flat);
 	free(places);
 	free(state);
+
+	// store results in txt files
+    // $time_spent $initial_energy $final_energy 
+    printf("Storing sequential code's results in results.txt...\n");
+    fptr = fopen("results.txt", "a");
+    fprintf(fptr, "Sequential\t%d\t%f\t%f\t%f\n", vertices, time_spent, initial_energy, final_energy);
+    fclose(fptr);
+	printf("Finished writing to results.txt\n\n");
 
 	return 0;
 }
